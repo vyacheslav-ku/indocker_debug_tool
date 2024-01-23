@@ -1,8 +1,6 @@
 # indocker_debug_tool
-# indocker_debug_tool
 
-
-Sample commad:
+### Sample commads:
 
 docker build -t indocker_debug_tool:1 .
 
@@ -12,3 +10,6 @@ docker run -it -u root \
 --network=container:target_container  \
 --volumes-from=target_container \
 indocker_debug_tool:1   bash
+
+### Strace:
+strace -f -p 1 -o /tmp/output.log -v -s 64
