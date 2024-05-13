@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-docker run -it -u root \
+docker run --rm -it -u root \
 --cap-add SYS_PTRACE \
 --pid=container:$1 \
 --network=container:$1  \
