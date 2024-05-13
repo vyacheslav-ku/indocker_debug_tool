@@ -20,3 +20,13 @@ strace -f -p 1 -o /tmp/output.log -v -s 64
 
 ## Bash command
 ./iddt.sh <container name>
+
+## Alias
+function iddt () {
+    if [ -z "$1" ]; then
+        echo  "Usage: iddt <container name/id >"
+        return 1
+    else
+        docker run --rm -it -u root --cap-add SYS_PTRACE --pid=container:$1 --network=container:$1  --volumes-from=$1 danubise/indocker_debug_tool:latest bash
+    fi;
+}
